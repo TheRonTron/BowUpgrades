@@ -22,24 +22,26 @@ namespace BowUpgrades
             PrefabManager.OnPrefabsRegistered += () =>
             {
 
-                var KickinWing = PrefabManager.Instance.GetPrefab("BowDraugrFang").GetComponent<ItemDrop>().m_itemData.m_shared.m_secondaryAttack;
-                PrefabManager.Instance.GetPrefab("BowDraugrFang").GetComponent<ItemDrop>().FixReferences();
+                //var KickinWing = PrefabManager.Instance.GetPrefab("BowDraugrFang").GetComponent<ItemDrop>().m_itemData.m_shared.m_secondaryAttack;
+                //PrefabManager.Instance.GetPrefab("BowDraugrFang").GetComponent<ItemDrop>().FixReferences();
 
                 var DraugrFang = PrefabManager.Instance.GetPrefab("BowDraugrFang").GetComponent<ItemDrop>().m_itemData.m_shared;
                 DraugrFang.m_attack.m_projectiles = DraugrFangProjectiles.Value;
                 DraugrFang.m_attack.m_damageMultiplier = (float)1 / DraugrFangProjectiles.Value;
-                DraugrFang.m_secondaryAttack = KickinWing;
+                //DraugrFang.m_secondaryAttack = KickinWing;
 
                 var Huntsman = PrefabManager.Instance.GetPrefab("BowHuntsman").GetComponent<ItemDrop>().m_itemData.m_shared.m_attack;
                 Huntsman.m_projectiles = HuntsmanProjectiles.Value;
                 Huntsman.m_damageMultiplier = (float)1 / HuntsmanProjectiles.Value;
 
+                /*
                 SecondaryAttackButt = new ButtonConfig
                 {
                     Name = "AltAttack",
                     Key = UnityEngine.KeyCode.Mouse3
                 };
                 InputManager.Instance.AddButton(PluginGUID, SecondaryAttackButt);
+                */
             };
         }
         public void GenerateConfig()
